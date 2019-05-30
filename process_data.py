@@ -1,6 +1,10 @@
+""" ETL pipelne for Udacity desaster reponse excercise.
+Loads data from .csv files, transforms and cleans it, and saves it back to
+sqlite database.
+
+"""
 import sys
 import pandas as pd
-import numpy as np
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
@@ -81,6 +85,14 @@ def save_data(df, database_filename):
 
 
 def main():
+    """Command line script executing the ETL pipeline.
+
+    Takes 3 command line arguments:
+        1: messages_filepath
+        2: categories_filepath
+        3: database_filepath
+
+    """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
